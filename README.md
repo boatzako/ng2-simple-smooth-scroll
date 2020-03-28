@@ -4,7 +4,7 @@
 [![devDependencies Status](https://david-dm.org/BoatZako/ng2-simple-smooth-scroll/dev-status.svg)](https://david-dm.org/BoatZako/ng2-simple-smooth-scroll?type=dev)
 
 
-Smooth scroll for Angular2+. [Demo](https://angular6-smooth-scroll-demo.stackblitz.io)
+Smooth scroll for Angular9+. [Demo](https://angular6-smooth-scroll-demo.stackblitz.io)
 
 ## Getting Started
 
