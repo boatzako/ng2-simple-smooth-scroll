@@ -95,14 +95,14 @@ export class SimpleSmoothScrollService {
     this.smoothScroll(0, opt, el);
   }
 
-  public smoothScrollToAnchor(opt: ISimpleSmoothScrollOption = {}) {
+  public smoothScrollToAnchor(opt: ISimpleSmoothScrollOption = {}, el: HTMLElement = document.documentElement) {
     if (isPlatformBrowser(this.platformId)) {
       let eid = window.location.hash;
       if (eid)
         eid = eid.replace('#', '');
       let target = document.getElementById(eid);
       if (target)
-        this.smoothScroll(target.offsetTop, opt);
+        this.smoothScroll(target.offsetTop - el.offsetTop, opt, el);
     }
   }
 }
