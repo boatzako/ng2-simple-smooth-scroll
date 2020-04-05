@@ -58,12 +58,11 @@ export class SimpleSmoothScrollService {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
-  public smoothScroll(height: number, opt: ISimpleSmoothScrollOption) {
+  public smoothScroll(height: number, opt: ISimpleSmoothScrollOption, el: HTMLElement = document.documentElement) {
     if (isPlatformBrowser(this.platformId)) {
       const option = new SimpleSmoothScrollOption(opt);
       const duration = option.duration;
-      const doc = document.documentElement;
-      const begin = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+      const begin = (window.pageYOffset || el.scrollTop) - (el.clientTop || 0);
       const t = 10;
       const tick = 1 / (duration / t);
       height += option.offset;
@@ -86,14 +85,14 @@ export class SimpleSmoothScrollService {
           current = 0;
           clearInterval(s);
         }
-        window.scrollTo(0, current);
+        el.scrollTo(0, current);
         time += tick;
       }, t);
     }
   }
 
-  public smoothScrollToTop(opt: ISimpleSmoothScrollOption = {}) {
-    this.smoothScroll(0, opt);
+  public smoothScrollToTop(opt: ISimpleSmoothScrollOption = {}, el: HTMLElement = document.documentElement) {
+    this.smoothScroll(0, opt, el);
   }
 
   public smoothScrollToAnchor(opt: ISimpleSmoothScrollOption = {}) {

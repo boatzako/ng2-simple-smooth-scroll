@@ -1,10 +1,12 @@
 # ng2-simple-smooth-scroll
 
-[![dependencies Status](https://david-dm.org/BoatZako/ng2-simple-smooth-scroll/status.svg)](https://david-dm.org/BoatZako/ng2-simple-smooth-scroll)
-[![devDependencies Status](https://david-dm.org/BoatZako/ng2-simple-smooth-scroll/dev-status.svg)](https://david-dm.org/BoatZako/ng2-simple-smooth-scroll?type=dev)
+[![Weekly downloads](https://badgen.net/npm/dw/ng2-simple-smooth-scroll)](https://badgen.net/npm/dw/ng2-simple-smooth-scroll)
+[![Total downloads](https://badgen.net/npm/dt/ng2-simple-smooth-scroll)](https://badgen.net/npm/dt/ng2-simple-smooth-scroll)
+[![License](https://badgen.net/npm/license/ng2-simple-smooth-scroll)](https://badgen.net/npm/license/ng2-simple-smooth-scroll)
+[![Minified](https://badgen.net/bundlephobia/min/ng2-simple-smooth-scroll)](https://badgen.net/bundlephobia/min/ng2-simple-smooth-scroll)
 
 
-Smooth scroll for Angular9+. [Demo](https://angular6-smooth-scroll-demo.stackblitz.io)
+Smooth scroll for Angular9+. [Demo](https://stackblitz.com/edit/angular6-smooth-scroll-demo)
 
 ## Getting Started
 
@@ -66,13 +68,13 @@ export class AppComponent implements OnInit{
 ### Methods
 #### smoothScrollToTop
 
-**smoothScrollToTop(** *[SimpleSmoothScrollOption]* **)**
+**smoothScrollToTop(** *[SimpleSmoothScrollOption]* *[, HTMLElement]* **)**
 
 Smooth scroll to top page. 
 
 #### smoothScrollToAnchor
 
-**smoothScrollToAnchor(** *[SimpleSmoothScrollOption]* **)**
+**smoothScrollToAnchor(** *[SimpleSmoothScrollOption]* *[, HTMLElement]* **)**
 
 Smooth scroll to the anchor.
 
@@ -161,6 +163,13 @@ type: `boolean`
 default: `false`
 
 Set `true` for show hash on URL
+
+#### [container]
+
+type: `HTMLElement`
+default: `document.documentElement`
+
+Set element which need to scroll
 
 ## Authors
 
