@@ -1,6 +1,7 @@
 import { Directive, Input, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { SimpleSmoothScrollService } from './ng2-simple-smooth-scroll.service';
+import { Router } from '@angular/router';
 
 @Directive({
   selector: '[SimpleSmoothScroll]'
@@ -15,6 +16,7 @@ export class SimpleSmoothScrollDirective {
 
   constructor(
     private el: ElementRef,
+    private router: Router,
     private smooth: SimpleSmoothScrollService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { }
@@ -25,8 +27,13 @@ export class SimpleSmoothScrollDirective {
       let eid = this.el.nativeElement.hash;
       if (eid) {
         if (this.showHash) {
-          // Change URL hash without page jump
-          history.pushState(null, null, eid);
+          const href = this.el.nativeElement.href
+          const dest = new URL(href)
+          const loc = window.location
+          if (dest.pathname == loc.pathname) {
+            // Change URL hash without page jump
+            history.pushState(null, null, href);
+          }
         }
         eid = eid.replace('#', '');
       }
